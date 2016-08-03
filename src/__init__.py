@@ -421,6 +421,8 @@ class AffinePoint(object):
         R = r.to_affine()
         assert R.on_curve
         return R
+    def double(self):
+        return self.__mul__(gmpy.mpz(2))
     def __add__(self, other):
         if not isinstance(other, AffinePoint):
             raise NotImplementedError
